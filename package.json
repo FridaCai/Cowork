@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "build": "webpack -d",
-    "run": "webpack-dev-server"
+    "_build": "webpack -d --watch",
+    "_deploy": "webpack-dev-server --hot --inline",
+    "run": "(npm run _build &) && (npm run _deploy &)"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",

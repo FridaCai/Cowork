@@ -14,7 +14,10 @@ module.exports = {
             {
                 test: /\.jsx?$/, // A regexp to test the require path. accepts either js or jsx
                 exclude: /node_modules/,
-                loaders: ['babel-loader'],
+                loader: 'babel',
+                query: {
+                    presets: ['es2015', 'react']
+                }
             },
             {
                 test: /\.less$/,
@@ -35,6 +38,9 @@ module.exports = {
         new webpack.ProvidePlugin({
             React: "react",
             ReactDOM: "react-dom",
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
         })
     ],
     cache: false,

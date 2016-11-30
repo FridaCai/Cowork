@@ -1,6 +1,8 @@
 var path = require('path');
 var webpack = require("webpack");
 
+var widgetPath = '/src/widget';
+
 module.exports = {
     entry: {
         app:['./src/app.js'],
@@ -45,6 +47,9 @@ module.exports = {
     ],
     cache: false,
     resolve: {
+        alias:{
+            Input: path.join(__dirname, widgetPath, "/input/index.js"),
+        }
     }
 };
 

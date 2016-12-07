@@ -58,7 +58,6 @@ page.open(url, function(status) {
 					_$(trIndex, tdIndex).val(val);
 				}, 2000)
 
-
 				setTimeout(function(){
 					console.log(trIndex.toString() + tdIndex.toString() + ": blur");
 					_$(trIndex, tdIndex).blur();	

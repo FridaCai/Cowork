@@ -1,6 +1,6 @@
 import Input from 'Input';
 
-var MainView = React.createClass({
+var GridView = React.createClass({
 	getInitialState: function() {
         return {
             lineNum: this.props.lineNum || 3,
@@ -8,7 +8,19 @@ var MainView = React.createClass({
         }
     },
     componentDidMount: function(){
-       
+       //Request.connect to server
+       //send login user
+
+       //component did unmount
+       //logout user.
+
+       //focus: occupy grid.
+
+       //change: change grid value.
+
+       //blur: release grid.
+
+       //server will notify all clients when grid is taken.
     },
 
     componentWillUnmount: function(){
@@ -52,7 +64,7 @@ var MainView = React.createClass({
     },
     render: function() {
     	return (
-            <table className="table">
+            <table className="gridview">
               <tbody>
                   {this._getBody()}
               </tbody>
@@ -61,4 +73,4 @@ var MainView = React.createClass({
     }
 });
 
-module.exports = MainView;
+module.exports = GridView;

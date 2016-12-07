@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require("webpack");
 
 var widgetPath = '/src/widget';
+var toolPath = '/src';
 
 module.exports = {
     entry: {
@@ -48,7 +49,11 @@ module.exports = {
     cache: false,
     resolve: {
         alias:{
-            Input: path.join(__dirname, widgetPath, "/input/index.js"),
+            Signal: path.join(__dirname, toolPath, "/signal.js"),
+            Request: path.join(__dirname, toolPath, "/request.js"),
+            API: path.join(__dirname, toolPath, "/api.js"),
+            Util: path.join(__dirname, toolPath, "/util.js"),
+            Input: path.join(__dirname, widgetPath, "/input/index.js")
         }
     }
 };

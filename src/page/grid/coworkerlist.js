@@ -2,12 +2,15 @@ import {API} from 'API';
 var CoWorkerList = React.createClass({
 	getInitialState(){
 		return {
-			coworkerlist: []
+			coworkerlist: API.coworkerlist
 		};
 	},
 
 	componentDidMount(){
 		API.signal_coworkerlist_update.listen(this._onUpdate);
+	},
+	componentWillUnmount(){
+		API.signal_coworkerlist_update.unlisten(this._onUpdate);
 	},
 	_onUpdate(e){
 		var coworkerlist = API.coworkerlist;

@@ -1,19 +1,22 @@
-import {API} from 'API';
+import {API, PAGE_ENUM} from 'API';
 var LoginUser = React.createClass({
 	getInitialState(){
 		return {
 		};
 	},
 
-	componentDidMount(){
+	
+	_onLogout(){
+		API.logout();
+		API.curPage = PAGE_ENUM.LoginPage;
+		API.signal_page_navigate.dispatch();
 	},
-
 	render(){
 		var label = `Hi ${API.loginUser}`;
 		return (
 			<div className='loginUser'>
 			    <label>{label}</label>
-			    <button>logout</button>
+			    <button onClick={this._onLogout}>logout</button>
 			</div>
 		)
 	}

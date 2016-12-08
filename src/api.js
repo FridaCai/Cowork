@@ -21,6 +21,7 @@ var API = {
     MSG_TYPE_SEND: {
         'login': 'login',
         'logout': 'logout',
+        'setId': 'setId'
         
     },
     MSG_TYPE_RECEIVE: {
@@ -32,14 +33,17 @@ var API = {
     coworkerlist: [],
     loginUser: null,
 
-    connect: function(){
+    connect: function(random){
         window.WebSocket = window.WebSocket || window.MozWebSocket;
         this.connection = new WebSocket('ws://127.0.0.1:8081', 'echo-protocol');
 
-
-        this.connection.onopen = function () {
-            console.log('open');
-        };
+        this.connection.onopen = (function () {
+            var obj = {
+                type: this.MSG_TYPE_SEND.setId,
+                value: random
+            }
+            this.connection.send(JSON.stringify(obj));
+        }).bind(this);
 
         this.connection.onerror = function (error) {
             alert('backend error');

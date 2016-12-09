@@ -8,5 +8,5 @@ ReactDOM.render(<MainView/>, $("#domContainer")[0]);
 var timestamp = Date.now();
 API.connect(timestamp);
 
-$("#domContainer").append(`<div>${timestamp}</div>`);
+//$("#domContainer").append(`<div>${timestamp}</div>`);
 

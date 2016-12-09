@@ -1,4 +1,6 @@
 import {API, PAGE_ENUM} from 'API';
+import Util from 'Util';
+
 var LoginUser = React.createClass({
 	getInitialState(){
 		return {
@@ -12,10 +14,20 @@ var LoginUser = React.createClass({
 		API.signal_page_navigate.dispatch();
 	},
 	render(){
-		var label = `Hi ${API.loginUser}`;
+		var user = API.loginUser;
+
+		var label = user.name;
+		var color = Util.convertIntColorToHex(user.color);
+
+		var style = {
+			background: color,
+			width: '5px',
+			height: '5px'
+		}
+
 		return (
 			<div className='loginUser'>
-			    <label>{label}</label>
+			    <label>Hi <span style={style}>{label}</span></label>
 			    <button onClick={this._onLogout}>logout</button>
 			</div>
 		)

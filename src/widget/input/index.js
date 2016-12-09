@@ -10,8 +10,15 @@ var Input = React.createClass({
 			onFocus: this.props.param.onFocus,
 			scope: this.props.param.scope,
 			isReadOnly: this.props.param.isReadOnly,
-			className: this.props.param.className
+			className: this.props.param.className,
+			style: this.props.param.style
 		}
+	},
+	componentWillReceiveProps(nextProps){
+		this.setState({
+			value: nextProps.param.value,
+			style: nextProps.param.style
+		})
 	},
 	getValue(){
 		return this.state.value;
@@ -34,9 +41,9 @@ var Input = React.createClass({
 	render(){
 		var className = this.state.className ? this.state.className: '';
         return (
-            <input ref='input' 
+            <input ref='input' style={this.state.style}
             	disabled={this.state.isReadOnly}
-            	defaultValue={this.state.value}
+            	value={this.state.value}
                 type='text' 
                 onChange={this.onChange} 
                 onBlur={this.onBlur}

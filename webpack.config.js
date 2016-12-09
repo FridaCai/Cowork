@@ -53,7 +53,9 @@ module.exports = {
             Request: path.join(__dirname, toolPath, "/request.js"),
             API: path.join(__dirname, toolPath, "/api.js"),
             Util: path.join(__dirname, toolPath, "/util.js"),
-            Input: path.join(__dirname, widgetPath, "/input/index.js")
+            Input: path.join(__dirname, widgetPath, "/input/index.js"),
+            WrapInput: path.join(__dirname, widgetPath, "/wrapinput/index.js")
+            
         }
     }
 };

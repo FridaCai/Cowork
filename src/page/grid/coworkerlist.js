@@ -1,4 +1,6 @@
 import {API} from 'API';
+import Util from 'Util';
+
 var CoWorkerList = React.createClass({
 	getInitialState(){
 		return {
@@ -26,7 +28,13 @@ var CoWorkerList = React.createClass({
 				<div className='list'>
 					{
 						this.state.coworkerlist.map(function(user){
-							return (<div key={user} className="coworker">{user}</div>)
+							var name = user.name;
+							var color = user.color;
+
+							var style = {
+								background: Util.convertIntColorToHex(color)
+							};
+							return (<div key={name} style={style} className="coworker">{name}</div>)
 						})	
 					}
 				</div>

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "_build": "webpack -d --watch",
-    "_deploy": "webpack-dev-server --hot --inline --port 8001",
+    "_deploy": "webpack-dev-server --hot --inline --port 8003",
     "run": "(npm run _build &) && (npm run _deploy &)"
   },
   "repository": {

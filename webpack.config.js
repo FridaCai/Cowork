@@ -4,16 +4,6 @@ var webpack = require("webpack");
 var widgetPath = '/src/widget';
 var toolPath = '/src';
 
-
-
-
-
-
-
-
-
-
-
 module.exports = {
     entry: {
         app:['./src/app.js'],
@@ -66,6 +56,7 @@ module.exports = {
     resolve: {
         alias:{
             Signal: path.join(__dirname, toolPath, "/signal.js"),
+            Config: path.join(__dirname, toolPath, "/config/system.js"),
             Request: path.join(__dirname, toolPath, "/request.js"),
             API: path.join(__dirname, toolPath, "/api.js"),
             Util: path.join(__dirname, toolPath, "/util.js"),

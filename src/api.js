@@ -1,4 +1,5 @@
 import Signal from 'Signal';
+import Config from 'Config';
 
 var PAGE_ENUM = {
     LoginPage: Symbol(),
@@ -40,7 +41,7 @@ var API = {
 
     connect: function(random){
         window.WebSocket = window.WebSocket || window.MozWebSocket;
-        this.connection = new WebSocket('ws://127.0.0.1:8081', 'echo-protocol');
+        this.connection = new WebSocket(Config.backendAPI, 'echo-protocol');
 
         this.connection.onopen = (function () {
             var obj = {

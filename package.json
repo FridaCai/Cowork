@@ -6,6 +6,7 @@
   "scripts": {
     "_build": "webpack -d --watch",
     "_deploy": "webpack-dev-server --hot --inline --port 8003",
+    "_build_prod": "webpack -p",
     "run": "(npm run _build &) && (npm run _deploy &)"
   },
   "repository": {

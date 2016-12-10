@@ -4,6 +4,16 @@ var webpack = require("webpack");
 var widgetPath = '/src/widget';
 var toolPath = '/src';
 
+
+
+
+
+
+
+
+
+
+
 module.exports = {
     entry: {
         app:['./src/app.js'],
@@ -44,7 +54,13 @@ module.exports = {
             $: "jquery",
             jQuery: "jquery",
             "window.jQuery": "jquery"
-        })
+        }),
+        new webpack.DefinePlugin({ //problem here. need to tell production and dev apart.
+          'process.env': {
+            NODE_ENV: JSON.stringify('production')
+          }
+        }),
+        new webpack.optimize.UglifyJsPlugin()
     ],
     cache: false,
     resolve: {
